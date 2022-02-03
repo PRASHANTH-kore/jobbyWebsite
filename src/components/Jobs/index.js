@@ -195,6 +195,12 @@ class Jobs extends Component {
   onChangeSearchInput = event => {
     this.setState({searchInput: event.target.value})
   }
+  
+   onEnterSearchInput = event => {
+    if (event.key === 'Enter') {
+      this.getJobs()
+    }
+  }
 
   onClickSearch = () => {
     this.getJobs()
@@ -210,6 +216,7 @@ class Jobs extends Component {
           className="input-search"
           placeholder="Search"
           onChange={this.onChangeSearchInput}
+         onKeyDown={this.onEnterSearchInput}
         />
         <button
           type="button"
